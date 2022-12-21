@@ -16,7 +16,7 @@ Splaturn内部で使用されている許可管理ライブラリです。
     ```php
     use splaturn\permissions\PermissionsLayer;
 
-    class YourPermissionLayer implements PermissionsLayer{
+    class YourPermissionsLayer implements PermissionsLayer{
         public bool $takeItem;
         public bool $dropItem;
     }
@@ -26,7 +26,7 @@ Splaturn内部で使用されている許可管理ライブラリです。
     ```php
     use splaturn\permissions\PermissionsLayer;
 
-    class YourPermissionLayer implements PermissionsLayer{
+    class YourPermissionsLayer implements PermissionsLayer{
         public ?bool $takeItem; // must not be nullable
         public string $dropItem; // must not be types other than bool
         public bool $useItem = false; // must not have default value 
