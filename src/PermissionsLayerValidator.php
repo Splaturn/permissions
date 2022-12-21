@@ -9,7 +9,7 @@ use ReflectionProperty;
 
 /**
  * use of this class is optional
- * you may use this in start up to prevent unexpected crash when running.
+ * recommend: use this in test to prevent unexpected crash when running.
  */
 final class PermissionsLayerValidator{
 
