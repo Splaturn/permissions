@@ -1,0 +1,26 @@
+{
+    "name": "splaturn/permissions",
+    "description": "splaturn internal library to accomplish independent permission system from pocketmine",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "famima65536",
+            "email": "famima65536@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "splaturn\\permissions\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "splaturn\\permissions\\": "tests/unit/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^1.9"
+    }
+}
