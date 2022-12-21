@@ -19,6 +19,7 @@ final class PermissionsCalculator{
         PermissionsLayerValidator::validate($defaultLayer);
 
         $reflection = new ReflectionClass($defaultLayer);
+        $base = clone $defaultLayer;
         $props = $reflection->getProperties();
 
         foreach($props as $prop){
@@ -27,13 +28,13 @@ final class PermissionsCalculator{
                     /** @var bool $value */
                     $value = $prop->getValue($layer);
                     if($value !== null){
-                        $prop->setValue($defaultLayer, $value);
+                        $prop->setValue($base, $value);
                         continue 2;
                     }
                 }
             }
         }
 
-        return $defaultLayer;
+        return $base;
     }
 }
