@@ -37,6 +37,21 @@ final class PermissionsValidatorTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         PermissionsLayerValidator::declaration(new BadPermissionsLayer4);
     }
+
+    public function testDefaultLayerPassed1() : void{
+        $layer = new GoodPermissionsLayer1;
+        $layer->sayHello = $layer->sayGoodBye = $layer->makeFriends = true;
+        $layer->joinGames = $layer->dig = $layer->mine = false;
+        PermissionsLayerValidator::defaultLayer($layer);
+        $this->assertTrue(true);
+    }
+
+    public function testDefaultLayerFailed1() : void{
+        $layer = new GoodPermissionsLayer1;
+        $layer->sayHello = $layer->sayGoodBye = $layer->makeFriends = true;
+        $this->expectException(InvalidArgumentException::class);
+        PermissionsLayerValidator::defaultLayer($layer);
+    }
     
 }
 

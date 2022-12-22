@@ -5,6 +5,7 @@ namespace splaturn\permissions;
 use InvalidArgumentException;
 use ReflectionClass;
 use ReflectionNamedType;
+use ReflectionObject;
 use ReflectionProperty;
 
 /**
@@ -37,7 +38,7 @@ final class PermissionsLayerValidator{
 
         $props = $reflection->getProperties();
         foreach($props as $prop){
-            if(!$prop->isInitialized()){
+            if(!$prop->isInitialized($layer)){
                 $name = $reflection->getName();
                 throw new InvalidArgumentException("property of $name {$prop->getName()} must be initialized.");
             }
