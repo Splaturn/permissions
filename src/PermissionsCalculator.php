@@ -8,7 +8,7 @@ final class PermissionsCalculator{
 
     /**
      * calculate PermissionLayers
-     * given layers should be sorted as priority.
+     * given layers should be sorted by priority.
      * 
      * @template T of PermissionsLayer
      * @phpstan-param T $defaultLayer
