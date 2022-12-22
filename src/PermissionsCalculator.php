@@ -16,7 +16,8 @@ final class PermissionsCalculator{
      * @return T
      */
     public static function calculate(PermissionsLayer $defaultLayer, array $layers) : PermissionsLayer{
-        PermissionsLayerValidator::validate($defaultLayer);
+        PermissionsLayerValidator::declaration($defaultLayer);
+        PermissionsLayerValidator::defaultLayer($defaultLayer);
 
         $reflection = new ReflectionClass($defaultLayer);
         $base = clone $defaultLayer;

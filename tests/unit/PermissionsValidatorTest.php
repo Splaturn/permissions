@@ -13,29 +13,29 @@ use PHPUnit\Framework\TestCase;
 final class PermissionsValidatorTest extends TestCase
 {
 
-    public function testValidatePassed1(): void{
-        PermissionsLayerValidator::validate(new GoodPermissionsLayer1);
+    public function testDeclarationPassed1(): void{
+        PermissionsLayerValidator::declaration(new GoodPermissionsLayer1);
         $this->assertTrue(true);
     }
 
-    public function testValidateFailed1(): void{
+    public function testDeclarationFailed1(): void{
         $this->expectException(InvalidArgumentException::class);
-        PermissionsLayerValidator::validate(new BadPermissionsLayer1);
+        PermissionsLayerValidator::declaration(new BadPermissionsLayer1);
     }
 
-    public function testValidateFailed2(): void{
+    public function testDeclarationFailed2(): void{
         $this->expectException(InvalidArgumentException::class);
-        PermissionsLayerValidator::validate(new BadPermissionsLayer2);
+        PermissionsLayerValidator::declaration(new BadPermissionsLayer2);
     }
 
-    public function testValidateFailed3(): void{
+    public function testDeclarationFailed3(): void{
         $this->expectException(InvalidArgumentException::class);
-        PermissionsLayerValidator::validate(new BadPermissionsLayer3);
+        PermissionsLayerValidator::declaration(new BadPermissionsLayer3);
     }
 
-    public function testValidateFailed4(): void{
+    public function testDeclarationFailed4(): void{
         $this->expectException(InvalidArgumentException::class);
-        PermissionsLayerValidator::validate(new BadPermissionsLayer4);
+        PermissionsLayerValidator::declaration(new BadPermissionsLayer4);
     }
     
 }
@@ -84,4 +84,3 @@ class BadPermissionsLayer4 implements PermissionsLayer{
     // should not be union.
     public bool|string $sayHello;
 }
-

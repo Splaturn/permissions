@@ -13,7 +13,10 @@ use ReflectionProperty;
  */
 final class PermissionsLayerValidator{
 
-    public static function validate(PermissionsLayer $layer) : void{
+    /**
+     * check whether all properties' declaration satisfy a specification.
+     */
+    public static function declaration(PermissionsLayer $layer) : void{
         $reflection = new ReflectionClass($layer);
 
         $props = $reflection->getProperties();
@@ -22,6 +25,21 @@ final class PermissionsLayerValidator{
             if(!self::satisfyPropertyCondition($prop)){
                 $name = $reflection->getName();
                 throw new InvalidArgumentException("property of $name {$prop->getName()} type must be ?bool but actually $prop.");
+            }
+        }
+    }
+
+    /**
+     * check whether all properties are initialized.
+     */
+    public static function defaultLayer(PermissionsLayer $layer) : void{
+        $reflection = new ReflectionClass($layer);
+
+        $props = $reflection->getProperties();
+        foreach($props as $prop){
+            if(!$prop->isInitialized()){
+                $name = $reflection->getName();
+                throw new InvalidArgumentException("property of $name {$prop->getName()} must be initialized.");
             }
         }
     }
