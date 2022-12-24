@@ -7,13 +7,14 @@ use ReflectionClass;
 final class PermissionsCalculator{
 
     /**
-     * calculate PermissionLayers
+     * calculate PermissionLayers.
+     * 
      * given layers should be sorted by priority.
      * 
      * @template T of PermissionsLayer
      * @phpstan-param T $defaultLayer
      * @phpstan-param array<int, T> $layers
-     * @return T
+     * @phpstan-return T
      */
     public static function calculate(PermissionsLayer $defaultLayer, array $layers) : PermissionsLayer{
         PermissionsLayerValidator::declaration($defaultLayer);
